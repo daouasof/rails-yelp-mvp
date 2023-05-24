@@ -1,15 +1,21 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%= @restaurant.category %></p>
+<div class="d-flex flex-row justify-content-between p-3">
+  <div>
+    <h1><%= @restaurant.name %></h1>
+    <p><i class="fa-solid fa-location-pin fa-2xs"></i> <%= @restaurant.address %></p>
+    <p><i class="fa-solid fa-phone fa-2xs"></i> <%= @restaurant.phone_number %></p>
+    <p><%= @restaurant.category %></p>
+  </div>
+  <div>
+    <%= link_to "back to the list", restaurants_path %>
+    <%= link_to "add a review",  new_restaurant_review_path(@restaurant), class:'btn btn-primary' %>
+  </div>
+</div>
 
 <h3>Reviews</h3>
 
 <% @restaurant.reviews.each do |review| %>
-  <div>
+  <div class="border m-3 p-2 rounded">
     <p><%= review.content %></p>
     <p><%= review.rating %>/5</p>
   </div>
 <% end %>
-<%= link_to "back to the list", restaurants_path %>
-<%= link_to "add a review",  new_restaurant_review_path(@restaurant) %>
