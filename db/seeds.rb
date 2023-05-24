@@ -7,7 +7,7 @@ puts 'creating 10 restaurants & 1 to 5 reviews per restaurant'
   resto = Restaurant.create!(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber,
+    phone_number: Faker::PhoneNumber.cell_phone,
     category: %w[chinese italian japanese french belgian].sample
   )
   puts "The restaurant with the id #{resto.id} was created"
