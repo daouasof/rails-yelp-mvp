@@ -16,6 +16,14 @@
 <% @restaurant.reviews.each do |review| %>
   <div class="border m-3 p-2 rounded">
     <p><%= review.content %></p>
-    <p><%= review.rating %>/5</p>
+    <p>
+    <% review.rating.times do %>
+      <i class="fa-solid fa-star" style="color: #eedc39;"></i>
+    <% end %>
+    <% (5 - review.rating).times do %>
+      <i class="fa-regular fa-star" style="color: #eedc39;"></i>
+    <% end %>
+
+    </p>
   </div>
 <% end %>
